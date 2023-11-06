@@ -2,7 +2,7 @@ class Player:
     def __init__(self) -> None:
         pass
 
-    def move(grid:list[list])->list:
+    def move(self, grid:list[list])->list:
         pass
 
 class HumanPlayer(Player):
@@ -15,10 +15,10 @@ class Game:
     def __init__(self) -> None:
         pass
 
-    def start():
+    def start(self):
         pass
 
-    def check():
+    def check(self):
         pass
 
 
