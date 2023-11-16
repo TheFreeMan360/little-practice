@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Tomato Alarm For You</title>
+    <style></style>
+    <script>
+      function main() {
+        console.log("everthing start from here");
+        updateTime();
+        setInterval(updateTime, 1000);
+      }
+
+      function updateTime() {
+        const date = new Date();
+        const currHour = fillZero(date.getHours());
+        const currMinute = fillZero(date.getMinutes());
+        const currSecond = fillZero(date.getSeconds());
+        const now = `${currHour}:${currMinute}:${currSecond}`;
+
+        const a = document.querySelector("#test");
+        a.innerHTML = now;
+      }
+
+      function fillZero(num) {
+        return num < 10 ? `0${num}` : num;
+      }
+
+      document.addEventListener("DOMContentLoaded", main);
+    </script>
+  </head>
+  <body>
+    <div id="header">idpsvokdvvs;djvkdsa</div>
+    <div id="content"><span id="test"> </span></div>
+    <div id="footer">r;qAFDHOLNHBKBNVHFDBNLDFSBVS</div>
+  </body>
+</html>
