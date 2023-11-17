@@ -4,35 +4,67 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A Tomato Alarm For You</title>
-    <style></style>
-    <script>
-      function main() {
-        console.log("everthing start from here");
-        updateTime();
-        setInterval(updateTime, 1000);
+
+    <style>
+      body {
+        margin: 0vh;
+        background-color: #eef1f4;
       }
 
-      function updateTime() {
-        const date = new Date();
-        const currHour = fillZero(date.getHours());
-        const currMinute = fillZero(date.getMinutes());
-        const currSecond = fillZero(date.getSeconds());
-        const now = `${currHour}:${currMinute}:${currSecond}`;
+      #header {
+        border: 20px black;
+        margin: 0vh;
+        background-color: #0e4f8f;
+      }
 
+      #footer {
+        margin: 0vh;
+        background-color: #0e4f8f;
+      }
+    </style>
+
+    <script>
+      function updateTime() {
+        const today = new Date();
+
+        renderTime(
+          (h = today.getHours()),
+          (m = today.getMinutes()),
+          (s = today.getSeconds())
+        );
+      }
+
+      function renderTime(h, m, s) {
+        h = new String(h).padStart(2, "0");
+        m = new String(m).padStart(2, "0");
+        s = new String(s).padStart(2, "0");
+
+        const now = `${h}:${m}:${s}`;
         const a = document.querySelector("#test");
         a.innerHTML = now;
       }
 
-      function fillZero(num) {
-        return num < 10 ? `0${num}` : num;
-      }
+      // main
+      document.addEventListener("DOMContentLoaded", () => {
+        console.log("everthing start from here");
 
-      document.addEventListener("DOMContentLoaded", main);
+        updateTime();
+        setInterval(updateTime, 1000);
+      });
     </script>
   </head>
   <body>
-    <div id="header">idpsvokdvvs;djvkdsa</div>
-    <div id="content"><span id="test"> </span></div>
-    <div id="footer">r;qAFDHOLNHBKBNVHFDBNLDFSBVS</div>
+    <div id="header">
+      這裡是酘酘
+      <button>Toggle uuu</button>
+    </div>
+
+    <div id="content">
+      <span id="test"></span>
+      <br />
+      <input type="file" name="" accept="audio/*" />
+    </div>
+
+    <div id="footer">這裡是腳腳</div>
   </body>
 </html>
