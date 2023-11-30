@@ -27,7 +27,4 @@ class Solution {
         return valid(root.left, min, root.val) 
                 && valid(root.right, root.val, max); 
     }
-
-
-
 }
