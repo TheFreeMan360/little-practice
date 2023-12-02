@@ -11,23 +11,19 @@ class Solution {
             int j = i + 1, k = len - 1;
             while(j < k){
                 int sum = nums[i] + nums[j] + nums[k];
+
+                if(Math.abs(target - sum) < Math.abs(target - res)){
+                    res = sum;
+                }
                 
                 if(sum == target){
                     return sum;
                 }
                 else if(sum > target){
                     --k;
-                    if(Math.abs(target - sum) < Math.abs(target - res)){
-                        res = sum;
-                        continue;
-                    }
                 }
                 else if(sum < target){
                     ++j;
-                    if(Math.abs(target - sum) < Math.abs(target - res)){
-                        res = sum;
-                        continue;
-                    } 
                 }
             }
         }
