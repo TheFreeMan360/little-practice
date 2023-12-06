@@ -5,6 +5,10 @@
 
 ---
 
+## game
+
+練習寫一些小遊戲
+
 ## leetcode
 
 一些刷過的 leetcode 題目
@@ -16,3 +20,7 @@
 ## webpage
 
 一些刻網頁的練習
+
+## zerojudge
+
+一些刷過的 zerojudge 題目
