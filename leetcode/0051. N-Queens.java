@@ -7,11 +7,11 @@ class Solution {
         return ans;
     }
 
-    private List<String> bulidBoard(int[] qp){
+    private List<String> bulidBoard(int[] qp) {
         List<String> board = new ArrayList();
         char[] tmp = new char[qp.length];
         Arrays.fill(tmp, '.');
-        for(int inx : qp){
+        for (int inx : qp) {
             tmp[inx] = 'Q';
             board.add(new String(tmp));
             tmp[inx] = '.';
@@ -19,22 +19,23 @@ class Solution {
         return board;
     }
 
-    private boolean isSafe(int[] qp, int row, int col){
-        for(int i = 0 ; i < row ; i++)
-            if(qp[i] == col || Math.abs(qp[i] - col) == Math.abs(i - row))
+    private boolean isSafe(int[] qp, int row, int col) {
+        for (int i = 0; i < row; i++)
+            if (qp[i] == col || Math.abs(qp[i] - col) == Math.abs(i - row))
                 return false;
         return true;
     }
 
-    private void backtracking(List<List<String>> ans, int[] qp, int row){
+    private void backtracking(List<List<String>> ans, int[] qp, int row) {
         int n = qp.length;
-        if(row == n){
+        if (row == n) {
             ans.add(bulidBoard(qp));
             return;
         }
 
-        for(int col = 0 ; col < n ; col++){
-            if(!isSafe(qp, row, col))continue;
+        for (int col = 0; col < n; col++) {
+            if (!isSafe(qp, row, col))
+                continue;
             qp[row] = col;
             backtracking(ans, qp, row + 1);
             qp[row] = -1;
