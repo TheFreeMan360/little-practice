@@ -6,10 +6,10 @@ class Solution {
             return ans;
         }
 
-        for(int i = 0 ; i < n ; i++)
-            for (String left: generateParenthesis(i))
-                    for (String right: generateParenthesis(n-1-i))
-                        ans.add("(" + left + ")" + right);
+        for (int i = 0; i < n; i++)
+            for (String left : generateParenthesis(i))
+                for (String right : generateParenthesis(n - 1 - i))
+                    ans.add("(" + left + ")" + right);
 
         return ans;
     }

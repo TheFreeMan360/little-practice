@@ -7,22 +7,23 @@ class Solution {
         return ans[0];
     }
 
-    private boolean valid(int[] qp, int row, int col){
-        for(int i = 0 ; i < row ; i++)
-            if(qp[i] == col || Math.abs(qp[i] - col) == Math.abs(i - row))
+    private boolean valid(int[] qp, int row, int col) {
+        for (int i = 0; i < row; i++)
+            if (qp[i] == col || Math.abs(qp[i] - col) == Math.abs(i - row))
                 return false;
         return true;
     }
 
-    private void backtracking(int[] ans, int[] qp, int row){
+    private void backtracking(int[] ans, int[] qp, int row) {
         int n = qp.length;
-        if(row == n){
+        if (row == n) {
             ans[0]++;
             return;
         }
 
-        for(int col = 0 ; col < n ; col++){
-            if(!valid(qp, row, col))continue;
+        for (int col = 0; col < n; col++) {
+            if (!valid(qp, row, col))
+                continue;
             qp[row] = col;
             backtracking(ans, qp, row + 1);
             qp[row] = -1;

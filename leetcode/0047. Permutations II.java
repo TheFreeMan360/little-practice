@@ -6,15 +6,16 @@ class Solution {
         return ans;
     }
 
-    private void backtracking(List<List<Integer>> ans, List<Integer> path, int[] nums, boolean[] used){
-        if(path.size() == nums.length){
+    private void backtracking(List<List<Integer>> ans, List<Integer> path, int[] nums, boolean[] used) {
+        if (path.size() == nums.length) {
             ans.add(new ArrayList(path));
             return;
         }
 
-        for(int i = 0 ; i < nums.length ; i++){
-            if(used[i]) continue;
-            if(i >= 1 && nums[i] == nums[i-1] && used[i-1] == false)
+        for (int i = 0; i < nums.length; i++) {
+            if (used[i])
+                continue;
+            if (i >= 1 && nums[i] == nums[i - 1] && used[i - 1] == false)
                 continue;
             used[i] = true;
             path.add(nums[i]);

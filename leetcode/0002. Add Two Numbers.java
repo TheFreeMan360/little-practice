@@ -1,19 +1,19 @@
 /**
  * Definition for singly-linked list.
  * public class ListNode {
- * int val;
- * ListNode next;
- * ListNode() {}
- * ListNode(int val) { this.val = val; }
- * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        /*
-         * Using a dummy node to traverse each node.
-         * Notice the question about carry.
-         */
+        /* 
+        * Using a dummy node to traverse each node.
+        * Notice the question about carry.
+        */
         ListNode dummy = new ListNode();
         ListNode tmp = dummy;
 

@@ -5,10 +5,10 @@ class Solution {
         return ans;
     }
 
-    private void backtracking(List<List<Integer>> ans, List<Integer> path, int[] nums, int inx){
+    private void backtracking(List<List<Integer>> ans, List<Integer> path, int[] nums, int inx) {
         ans.add(new ArrayList(path));
 
-        for(int i = inx ; i < nums.length ; i++){
+        for (int i = inx; i < nums.length; i++) {
             path.add(nums[i]);
             backtracking(ans, path, nums, i + 1);
             path.remove(path.size() - 1);

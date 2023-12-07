@@ -14,17 +14,20 @@
  * }
  */
 class Solution {
-    
+
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> l = new LinkedList();
         inorder(l, root);
-        return l;            
+        return l;
     }
 
     private void inorder(List<Integer> lis, TreeNode root) {
-        if(root == null) return;
-        if(root.left != null) inorder(lis, root.left);
+        if (root == null)
+            return;
+        if (root.left != null)
+            inorder(lis, root.left);
         lis.add(root.val);
-        if(root.right != null) inorder(lis, root.right);
+        if (root.right != null)
+            inorder(lis, root.right);
     }
 }
