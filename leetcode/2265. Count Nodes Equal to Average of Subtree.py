@@ -15,10 +15,10 @@ class Solution:
         if root.left == root.right:
             return (1, root.val, 1)
 
-        l = self.dfs(root.left)
-        r = self.dfs(root.right)
+        lans, lsum, ln = self.dfs(root.left)
+        rans, rsum, rn = self.dfs(root.right)
 
-        all_sum = l[1] + r[1] + root.val
-        all_node = l[2] + r[2] + 1
-        eq_node = l[0] + r[0] + (1 if (all_sum // all_node) == root.val else 0)
+        all_sum = lsum + rsum + root.val
+        all_node = ln + rn + 1
+        eq_node = lans + rans + (1 if (all_sum // all_node) == root.val else 0)
         return (eq_node, all_sum, all_node)
