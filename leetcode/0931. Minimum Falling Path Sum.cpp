@@ -5,14 +5,12 @@ public:
 
         for(int r = 1; r < m; ++r){
             for(int c = 0; c < n; ++c){
-                int minNum = INT_MAX;
-                if(isValidInx(r - 1, c - 1, m, n))
+                int minNum = matrix[r - 1][c];
+                if(c - 1 >= 0)
                     minNum = min(minNum, matrix[r - 1][c - 1]);
-                if(isValidInx(r - 1, c, m, n))
-                    minNum = min(minNum, matrix[r - 1][c]);
-                if(isValidInx(r - 1, c + 1, m, n))
+                if(c + 1 < n)
                     minNum = min(minNum, matrix[r - 1][c + 1]);
-
+                
                 matrix[r][c] += minNum;
             }
         }
@@ -22,9 +20,5 @@ public:
             ans = min(ans, matrix[m - 1][c]);
         }
         return ans;
-    }
-
-    inline bool isValidInx(int r, int c, int m, int n){
-        return r >= 0 && r < m && c >= 0 && c < n;
     }
 };
