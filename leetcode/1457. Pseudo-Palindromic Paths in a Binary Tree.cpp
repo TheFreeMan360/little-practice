@@ -12,23 +12,16 @@
  */
 class Solution {
 public:
-    int pseudoPalindromicPaths(TreeNode* root) {
-        return dfs(root, true, bitset<10>());
-    }
-
-    int dfs(TreeNode* root, bool isOddLevel, bitset<10> s) {
-        if (root == nullptr) {
+    int pseudoPalindromicPaths(TreeNode* root, int count = 0) {
+        if (root == nullptr)
             return 0;
-        }
 
-        if (root->left == root->right) {
-            s.flip(root->val);
-            bool cond1 = isOddLevel && s.count() == 1;
-            bool cond2 = !isOddLevel && s.count() == 0;
-            return (cond1 || cond2) ? 1 : 0;
-        }
+        count ^= 1 << root->val;
 
-        s.flip(root->val);
-        return dfs(root->left, !isOddLevel, s) + dfs(root->right, !isOddLevel, s);
+        if (root->left == root->right)
+            return ((count & (count - 1)) == 0) ? 1 : 0;
+
+        return pseudoPalindromicPaths(root->left, count) +
+               pseudoPalindromicPaths(root->right, count);
     }
 };
